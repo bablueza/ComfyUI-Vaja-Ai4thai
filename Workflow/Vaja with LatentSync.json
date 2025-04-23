@@ -1,0 +1,465 @@
+{
+  "id": "23ac3ea4-df00-4ef5-94cd-c4c121fb3f2a",
+  "revision": 0,
+  "last_node_id": 14,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 14,
+      "type": "Vaja Synthesis Api",
+      "pos": [
+        2595.663818359375,
+        -247.6475830078125
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            17,
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Vaja Synthesis Api"
+      },
+      "widgets_values": [
+        "lieE7oIx8iQkVqZ9xHMhXc2o7lknAPuF",
+        "ทดสอบการสังเคราะห์เสียงพูด",
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3788.00244140625,
+        -128.891845703125
+      ],
+      "size": [
+        850.0015258789062,
+        334
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 3
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "cosmos_output",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "cosmos_output_00005-audio.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "cosmos_output_00005.png",
+            "fullpath": "/tmp/latentsync_b019f10b/cosmos_output_00005-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "D_LatentSyncNode",
+      "pos": [
+        3419.583740234375,
+        242.4530792236328
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_LatentSyncNode"
+      },
+      "widgets_values": [
+        939,
+        "randomize"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "D_VideoLengthAdjuster",
+      "pos": [
+        3097.042236328125,
+        436.4923095703125
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_VideoLengthAdjuster"
+      },
+      "widgets_values": [
+        "normal"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "SetNode",
+      "pos": [
+        3076.031005859375,
+        10.531856536865234
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            3,
+            14,
+            15
+          ]
+        }
+      ],
+      "title": "Set_autio_Kokorotts-1",
+      "properties": {
+        "previousName": ""
+      },
+      "widgets_values": [
+        "autio_Kokorotts-1"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 7,
+      "type": "PreviewAudio",
+      "pos": [
+        3140.93310546875,
+        -192.83526611328125
+      ],
+      "size": [
+        315,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        2463.938720703125,
+        95.34138488769531
+      ],
+      "size": [
+        570.363525390625,
+        1024.941162109375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideoPath"
+      },
+      "widgets_values": {
+        "video": "/opt/data/TTS/ComfyUI/input/nam.mov",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": true,
+          "params": {
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "/opt/data/TTS/ComfyUI/input/nam.mov",
+            "type": "path",
+            "format": "video/mov"
+          },
+          "muted": false
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      2,
+      5,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      1,
+      0,
+      2,
+      1,
+      "AUDIO"
+    ],
+    [
+      4,
+      6,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      9,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      1,
+      0,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      15,
+      1,
+      0,
+      5,
+      1,
+      "AUDIO"
+    ],
+    [
+      17,
+      14,
+      0,
+      7,
+      0,
+      "AUDIO"
+    ],
+    [
+      18,
+      14,
+      0,
+      1,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        2444.486328125,
+        -68.68045806884766,
+        1887.17138671875,
+        898.6008911132812
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7400249944258341,
+      "offset": [
+        -1929.489298084206,
+        -4.385814333791984
+      ]
+    },
+    "frontendVersion": "1.16.9",
+    "node_versions": {
+      "ComfyUI-VideoHelperSuite": "c47b10ca1798b4925ff5a5f07d80c51ca80a837d",
+      "ComfyUI-KokoroTTS": "dfedb52658c267b0a4be9b452df96de8ca6d2caf",
+      "comfy-core": "0.3.10",
+      "ComfyUI-LatentSyncWrapper": "027df7d965ecb1d3b5b1da989993505264c0308d",
+      "ComfyUI-KJNodes": "3d6b72f28d5ed27e13a512369681e103ff42d534"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
