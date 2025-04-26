@@ -1,0 +1,14 @@
+[project]
+name = "vaja-ai4thai"
+description = "NODES: Vaja Synthesis Api, ShowText"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/bablueza/ComfyUI-Vaja-Ai4thai"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Vaja-Ai4thai"
+Icon = ""
